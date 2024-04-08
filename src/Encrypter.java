@@ -88,7 +88,7 @@ public class Encrypter extends CryptCommon{
                 result.append(encryptedChar);
             } else if (Character.isDigit(ch)) { // Handle numbers
                 char base = '0';
-                char encryptedChar = (char) (((ch - base + shift) % 10) + base);
+                char encryptedChar = (char) (((ch - base + shift) % 10 + 10) % 10 + base);
                 result.append(encryptedChar);
             } else {
                 result.append(ch);

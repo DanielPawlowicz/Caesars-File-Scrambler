@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class CryptCommon {
+abstract class CryptCommon {
 	
 	JFrame frame = new JFrame();
     JButton chooseFileBtn = new JButton("Choose file");
