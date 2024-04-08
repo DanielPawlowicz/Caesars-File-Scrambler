@@ -1,4 +1,7 @@
+import java.awt.CardLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame{
 	
@@ -9,11 +12,11 @@ public class MainFrame extends JFrame{
 		setSize(500, 500);
 		setLocationRelativeTo(null);
 		
-		ActionChooser actionChooser = new ActionChooser();
-		
-		this.add(actionChooser);
-		
-		this.setVisible(true);
+        ActionChooser actionChooser = new ActionChooser();
+        
+        add(actionChooser);
+        
+        setVisible(true);
 	}
 
 }
