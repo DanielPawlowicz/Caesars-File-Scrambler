@@ -31,6 +31,7 @@ public class Encrypter {
         shiftLabel.setBounds(50, 100, 250, 30);
         shiftComboBox.setBounds(250, 100, 150, 30);
         encrypt.setBounds(50, 150, 150, 30);
+        info.setBounds(50, 200, 450, 150);
 
         frame.setLayout(null);
         frame.add(chooseFileBtn);
@@ -106,9 +107,14 @@ public class Encrypter {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            info.setText("Something went wrong");
         } catch (IOException e) {
             e.printStackTrace();
+            info.setText("Something went wrong");
         }
+        info.setText("Path: "+outputPath+"/"+encryptedFileName);
+        System.out.println(outputPath);
+        System.out.println(encryptedFileName);
     }
 
     private String encrypt(String text, int shift) {
