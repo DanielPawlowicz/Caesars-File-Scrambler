@@ -19,6 +19,7 @@ public class Encrypter extends CryptCommon{
 	public Encrypter() {
 		
 		start.setText("Start encryption");
+		frame.setTitle("Encrypt File");
 		
 		start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -33,7 +34,7 @@ public class Encrypter extends CryptCommon{
         String encryptedFileName = "";
 
         // Retrieve chosen file path from the label
-        String chosenFilePath = info.getText().replace("File chosen: ", "");
+        String chosenFilePath = info.getText().replace("Chosen file: ", "");
 
         // Check if a file is selected
         if (chosenFilePath.isEmpty()) {
