@@ -38,6 +38,7 @@ public class Encrypter extends CryptCommon{
         // Check if a file is selected
         if (chosenFilePath.isEmpty()) {
             System.out.println("No file selected.");
+            info.setText("No file selected");
             return;
         }
 
