@@ -1,32 +1,19 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
+// Panel to choose between encryption and decryption actions
+public class ActionChooser extends JPanel {
 
-public class ActionChooser extends JPanel{
+    public ActionChooser() {
+        // Create buttons for encryption and decryption
+        JButton btnEncryption = new JButton("Encrypt file");
+        JButton btnDecryption = new JButton("Decrypt file");
 
-	public ActionChooser() {
-		JButton encryptionButton = new JButton("Encrypt file");
-		JButton decryptionButton = new JButton("Decrypt file");
-		
-		encryptionButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				System.out.println("works e");
-				new Encrypter();
-			}
-		});
-		
-		decryptionButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				System.out.println("works d");
-				new Decrypter();
-			}
-		});
-		
-		this.add(encryptionButton);
-		this.add(decryptionButton);
-	}
-	
-	
+        // Add action listeners to the buttons
+        btnEncryption.addActionListener(e -> new Encrypter());
+        btnDecryption.addActionListener(e -> new Decrypter());
+
+        // Add buttons to the panel
+        add(btnEncryption);
+        add(btnDecryption);
+    }
 }

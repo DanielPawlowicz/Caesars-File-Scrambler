@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 
+//Class for decrypting files
 public class Decrypter extends CryptCommon{
 	
 	public Decrypter() {
@@ -16,7 +17,7 @@ public class Decrypter extends CryptCommon{
 		start.setText("Start decryption");
 		frame.setTitle("Decrypt File");
 
-		
+		// Add action listener to the start button
 		start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 decryptFile();
@@ -25,12 +26,15 @@ public class Decrypter extends CryptCommon{
 		
 	}
 	
+	// Decrypt the chosen file
 	private void decryptFile() {
 		int shiftNumber = (Integer) shiftComboBox.getSelectedItem();
         String decryptedFileName = "";
 
+     // Retrieve chosen file path from the label
         String chosenFilePath = info.getText().replace("Chosen file: ", "");
 
+     // Check if a file is selected
         if (chosenFilePath.isEmpty()) {
             System.out.println("No file selected.");
             return;
@@ -70,24 +74,25 @@ public class Decrypter extends CryptCommon{
 	        info.setText("Path: "+outputPath+"/"+decryptedFileName);
     }
 	
+	// Decrypt a single line of text
 	private String decrypt(String text, int shift) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (Character.isLetter(ch)) {
-                char base = Character.isUpperCase(ch) ? 'A' : 'a';
-                char decryptedChar = (char) (((ch - base - shift + 26) % 26) + base);
-                result.append(decryptedChar);
-            } else if (Character.isDigit(ch)) { // Handle numbers
-                char base = '0';
-                char decryptedChar = (char) (((ch - base - shift + 10) % 10) + base);
-                result.append(decryptedChar);
-            } else {
-                result.append(ch);
-            }
-        }
-        return result.toString();
-    }
+	    StringBuilder result = new StringBuilder();
+	    for (int i = 0; i < text.length(); i++) {
+	        char ch = text.charAt(i);
+	        if (Character.isLetter(ch)) {
+	            char base = Character.isUpperCase(ch) ? 'A' : 'a';
+	            char decryptedChar = (char) (((ch - base - shift + 26) % 26) + base);
+	            result.append(decryptedChar);
+	        } else if (Character.isDigit(ch)) { // Handle numbers
+	            char base = '0';
+	            char decryptedChar = (char) (((ch - base - shift + 10) % 10 + 10) % 10 + base);
+	            result.append(decryptedChar);
+	        } else {
+	            result.append(ch);
+	        }
+	    }
+	    return result.toString();
+	}
 
 	
 }

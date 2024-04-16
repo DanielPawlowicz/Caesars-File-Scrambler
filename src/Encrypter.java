@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+//Class for encrypting files
 public class Encrypter extends CryptCommon{
     
 	public Encrypter() {
@@ -29,13 +30,14 @@ public class Encrypter extends CryptCommon{
 		
 	}
 	
+    // Encrypt the chosen file
     private void encryptFile() {
         int shiftNumber = (Integer) shiftComboBox.getSelectedItem();
         String encryptedFileName = "";
 
         // Retrieve chosen file path from the label
         String chosenFilePath = info.getText().replace("Chosen file: ", "");
-
+        
         // Check if a file is selected
         if (chosenFilePath.isEmpty()) {
             System.out.println("No file selected.");
@@ -80,6 +82,7 @@ public class Encrypter extends CryptCommon{
         System.out.println(encryptedFileName);
     }
 
+ // Encrypt a single line of text
     private String encrypt(String text, int shift) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
@@ -99,7 +102,4 @@ public class Encrypter extends CryptCommon{
         return result.toString();
     }
 
-    public static void main(String[] args) {
-        new Encrypter();
-    }
 }

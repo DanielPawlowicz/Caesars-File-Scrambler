@@ -53,7 +53,7 @@ abstract class CryptCommon {
         int returnValue = fileChooser.showOpenDialog(frame);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            info.setText("File chosen: " + selectedFile.getAbsolutePath());
+            info.setText("Chosen file: " + selectedFile.getAbsolutePath());
         }
     }
 
